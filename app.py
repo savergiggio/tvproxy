@@ -115,4 +115,4 @@ def proxy_key():
         return f"Errore durante il download della chiave AES-128: {str(e)}", 500
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=7860, debug=False)
+    app.run(host="0.0.0.0", port=7865, debug=False)
