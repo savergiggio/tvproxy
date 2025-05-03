@@ -1,5 +1,8 @@
 # tvproxy
 
+---
+
+per adesso funziona solo su HuggingFace!
 
 ---
 
@@ -47,20 +50,20 @@ Dockerizzarlo per l'uso su qualsiasi macchina o server.
 
 1️⃣ Clonare il Repository
 
-git clone https://github.com/tuo-username/m3u8-proxy.git
-cd m3u8-proxy
+git clone https://github.com/nzo66/tvproxy.git
+cd tvproxy
 
 2️⃣ Costruire l'Immagine Docker
 
-docker build -t m3u8-proxy .
+docker build -t tvproxy .
 
 3️⃣ Avviare il Container
 
-docker run -d -p 7680:7680 --name m3u8-proxy m3u8-proxy
+docker run -d -p 7860:7860 --name tvproxy tvproxy
 
 4️⃣ Verificare che il Proxy sia Attivo
 
-curl http://localhost:7680/
+curl http://localhost:7860/
 
 Dovresti ricevere una risposta tipo:
 
@@ -74,19 +77,19 @@ The requested URL was not found on the server. If you entered the URL manually p
 
 🔹 Controllare i log del container
 
-docker logs -f m3u8-proxy
+docker logs -f tvproxy
 
 🔹 Fermare il container
 
-docker stop m3u8-proxy
+docker stop tvproxy
 
 🔹 Riavviare il container
 
-docker start m3u8-proxy
+docker start tvproxy
 
 🔹 Rimuovere il container
 
-docker rm -f m3u8-proxy
+docker rm -f tvproxy
 
 
 ---
@@ -103,14 +106,14 @@ sudo apt update && sudo apt install -y docker.io
 
 Se sei su Windows, usa WinSCP o scp:
 
-scp -r m3u8-proxy user@server-ip:/home/user/
+scp -r tvproxy user@server-ip:/home/user/
 
 3️⃣ Accedi al server e avvia il container
 
 ssh user@server-ip
-cd /home/user/m3u8-proxy
-docker build -t m3u8-proxy .
-docker run -d -p 7680:7680 --name m3u8-proxy m3u8-proxy
+cd /home/user/tvproxy
+docker build -t tvproxy .
+docker run -d -p 7860:7860 --name tvproxy tvproxy
 
 ---
 
@@ -118,11 +121,11 @@ Ora il proxy sarà raggiungibile da qualsiasi dispositivo all’indirizzo:
 
 (se utilizzi HuggingFace o Render non hai bisogno di mettere la Porta)
 
-http://server-ip:7680/proxy/m3u?url=<URL_M3U8>
+http://server-ip:7860/proxy/m3u?url=<URL_M3U8>
 
 ricorda non proxare la lista completa ma dento la lista prima di ogni url m3u8 metti http://server-ip:7680/proxy/m3u?url=<URL_M3U8>
 
-se hai headers diversi allora metti http://server-ip:7680/proxy/m3u?url=<URL_M3U8><HEADERS_PERSONALIZZATO>
+se hai headers diversi allora metti http://server-ip:7860/proxy/m3u?url=<URL_M3U8><HEADERS_PERSONALIZZATO>
 
 esempio <HEADERS_PERSONALIZZATO>
 
